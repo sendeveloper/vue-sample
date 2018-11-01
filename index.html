@@ -17,7 +17,8 @@
           {{ item.message }} {{item}}
         </li>
       </ul>
-
+      <input @keyup.alt.67="submit" v-on:keyup.space="space">
+      <button @click.right="submit">A</button>
     </div>
     <!-- Since there is already a rich ecosystem of ajax libraries    -->
     <!-- and collections of general-purpose utility methods, Vue core -->
@@ -38,12 +39,23 @@
         ok: false,
         answer: 'I cannot give you an answer until you ask a question!'
       },
+      computed: {
+        submit: function() {
+          console.log('submit');
+        },
+        space: function() {
+          console.log('sace');
+        }
+      },
+      methods: {
+        
+      },
       watch: {
         // whenever question changes, this function will run
         question: function (newQuestion, oldQuestion) {
           this.answer = 'Waiting for you to stop typing...'
           this.debouncedGetAnswer()
-        }
+        },
       },
       created: function () {
         // _.debounce is a function provided by lodash to limit how
