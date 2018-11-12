@@ -2961,7 +2961,7 @@ function resetSchedulerState () {
 function flushSchedulerQueue () {
   flushing = true;
   var watcher, id;
-
+  console.log(watcher, id);
   // Sort queue before flush.
   // This ensures that:
   // 1. Components are updated from parent to child. (because parent is always
